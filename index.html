@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05090d">
   <title>GMA_OS // 5 meses</title>
   <style>
     :root {
@@ -13,35 +14,37 @@
       --pink: #ff63c3;
       --text: #e4fff7;
       --muted: #89b9b0;
-      --line: #1d766a
+      --line: #1d766a;
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      background: radial-gradient(ellipse at top, #10232b 0%, var(--bg) 60%);
+      min-height: 100vh;
       color: var(--text);
       font-family: Consolas, Monaco, monospace;
-      min-height: 100vh
+      background: radial-gradient(ellipse at top, #10232b 0%, var(--bg) 60%);
     }
 
-    body:before {
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
       opacity: .13;
-      background-image: linear-gradient(#1b6b60 1px, transparent 1px), linear-gradient(90deg, #1b6b60 1px, transparent 1px);
-      background-size: 28px 28px
+      background-image:
+        linear-gradient(#1b6b60 1px, transparent 1px),
+        linear-gradient(90deg, #1b6b60 1px, transparent 1px);
+      background-size: 28px 28px;
     }
 
     .wrap {
       max-width: 1000px;
       margin: auto;
-      padding: 22px
+      padding: 22px;
     }
 
     .top {
@@ -52,186 +55,190 @@
       border: 1px solid var(--line);
       padding: 13px 16px;
       background: #071116;
-      box-shadow: 0 0 22px #00ffc322
+      box-shadow: 0 0 22px #00ffc322;
     }
 
     .brand {
       color: var(--green);
       font-weight: bold;
-      letter-spacing: 1px
+      letter-spacing: 1px;
     }
 
     .status {
       color: var(--pink);
-      font-size: .8rem
+      font-size: .8rem;
     }
 
     .grid {
       display: grid;
       grid-template-columns: 1.15fr .85fr;
       gap: 16px;
-      margin-top: 16px
+      margin-top: 16px;
     }
 
     .panel {
-      border: 1px solid var(--line);
-      background: #071116eF;
+      min-width: 0;
       padding: 20px;
-      box-shadow: 0 0 18px #00ffc311;
+      border: 1px solid var(--line);
       border-radius: 5px;
-      min-width: 0
+      background: #071116ef;
+      box-shadow: 0 0 18px #00ffc311;
     }
 
     h1 {
-      font-size: clamp(1.7rem, 5vw, 3.2rem);
-      line-height: 1.1;
       margin: 12px 0;
       color: var(--green);
-      text-shadow: 0 0 15px #65ffd044
+      font-size: clamp(1.7rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      text-shadow: 0 0 15px #65ffd044;
     }
 
     h2 {
-      font-size: 1rem;
+      margin: 0 0 14px;
       color: var(--pink);
-      margin: 0 0 14px
+      font-size: 1rem;
     }
 
     p {
+      color: #c4e9df;
       line-height: 1.65;
-      color: #c4e9df
     }
 
     .small {
+      color: var(--muted);
       font-size: .82rem;
-      color: var(--muted)
     }
 
     .prompt {
-      color: var(--green)
+      color: var(--green);
     }
 
     .heart {
+      display: inline-block;
       color: var(--pink);
       font-size: 2.4rem;
-      animation: pulse 1.5s infinite
+      animation: pulse 1.5s infinite;
     }
 
     @keyframes pulse {
       50% {
         transform: scale(1.13);
-        text-shadow: 0 0 22px var(--pink)
+        text-shadow: 0 0 22px var(--pink);
       }
     }
 
     button {
-      font: inherit;
-      background: #081c1c;
-      color: var(--green);
-      border: 1px solid var(--green);
       padding: 11px 14px;
-      cursor: pointer;
+      border: 1px solid var(--green);
       border-radius: 3px;
-      transition: .2s
+      color: var(--green);
+      background: #081c1c;
+      font: inherit;
+      cursor: pointer;
+      transition: .2s;
     }
 
     button:hover {
-      background: var(--green);
       color: #03100d;
-      box-shadow: 0 0 18px #65ffd066
+      background: var(--green);
+      box-shadow: 0 0 18px #65ffd066;
     }
 
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
-      margin-top: 18px
+      margin-top: 18px;
     }
 
     .terminal {
-      background: #020608;
-      border: 1px solid #174a45;
-      padding: 14px;
       min-height: 142px;
-      white-space: pre-wrap;
+      padding: 14px;
+      border: 1px solid #174a45;
       color: var(--green);
-      line-height: 1.8
+      background: #020608;
+      white-space: pre-wrap;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
     }
 
     .photo {
+      display: block;
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
       border: 1px solid var(--line);
+      border-radius: 3px;
       background: #0b2025;
-      border-radius: 3px
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px
+      gap: 10px;
     }
 
     .caption {
-      font-size: .78rem;
+      margin-top: 6px;
       color: var(--muted);
-      margin-top: 6px
+      font-size: .78rem;
     }
 
     .hidden {
-      display: none !important
+      display: none !important;
     }
 
     .letter {
+      padding: 5px 0 5px 15px;
       border-left: 2px solid var(--pink);
-      padding: 5px 0 5px 15px
     }
 
     .list {
       padding-left: 20px;
+      color: #c4e9df;
       line-height: 1.9;
-      color: #c4e9df
     }
 
-    input,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      background: #02090c;
+    .map-frame {
+      overflow: hidden;
       border: 1px solid var(--line);
-      color: var(--text);
-      font: inherit;
-      margin: 5px 0 12px
+      border-radius: 3px;
     }
 
-    label {
-      font-size: .83rem;
-      color: var(--muted)
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 350px;
+      border: 0;
     }
 
     footer {
-      text-align: center;
-      color: var(--muted);
       padding: 22px;
-      font-size: .8rem
+      color: var(--muted);
+      font-size: .8rem;
+      text-align: center;
     }
 
-    @media(max-width:720px) {
+    @media (max-width: 720px) {
       .grid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
       }
 
       .wrap {
-        padding: 12px
+        padding: 12px;
       }
 
       .panel {
-        padding: 16px
+        padding: 16px;
       }
 
       .top {
         align-items: flex-start;
-        flex-direction: column
+        flex-direction: column;
+      }
+
+      .map-frame iframe {
+        height: 300px;
       }
     }
   </style>
@@ -240,53 +247,65 @@
 <body>
   <div class="wrap">
     <header class="top">
-      <div class="brand">▣ GMA_OS <span id="version">v5.0</span> // NUESTRA HISTORIA</div>
+      <div class="brand">▣ GMA_OS v5.0 // NUESTRA HISTORIA</div>
       <div class="status">● CONEXIÓN DEL CORAZÓN: ACTIVA</div>
     </header>
 
     <main class="grid">
       <section class="panel">
         <div class="heart">♡</div>
-        <div class="small">USUARIO DETECTADO: <span id="herNameTop">Gma</span></div>
-        <h1>Hola, <span id="herNameTitle">Gma</span>.</h1>
-        <p>Creé este pequeño rincón digital solo para ti. No es una página cualquiera: es una forma de guardar un
-          pedacito de nosotros y celebrar estos cinco meses.</p>
+        <div class="small">USUARIO DETECTADO: GMA</div>
+        <h1>Hola, Gma.</h1>
+        <p>
+          Creé este pequeño rincón digital solo para ti. No es una página cualquiera:
+          es una forma de guardar un pedacito de nosotros y celebrar estos cinco meses.
+        </p>
+
         <div class="terminal" id="terminal">> Iniciando GMA_OS...
           > Buscando a mi persona favorita...
           > Persona encontrada: Gma ♡
           > Tiempo juntos: 5 meses
           > Estado: enamorado.exe funcionando</div>
+
         <div class="buttons">
           <button onclick="openSection('letter')">[ Abrir carta ]</button>
           <button onclick="openSection('memories')">[ Ver recuerdos ]</button>
           <button onclick="openSection('surprise')">[ Desbloquear sorpresa ]</button>
+          <button onclick="openSection('map')">[ Nuestro mapa ]</button>
+          <button onclick="openSong()">[ ♫ Nuestra canción ]</button>
         </div>
       </section>
 
       <section class="panel">
         <h2>♡ UNA FOTO NUESTRA</h2>
-        <img class="photo" id="mainPhoto" src="fotos/foto-principal.jpg" alt="Nuestra foto especial"
-          onerror="this.style.display='none';document.getElementById('photoPlaceholder').classList.remove('hidden')">
-        <div id="photoPlaceholder" class="terminal small hidden"></div>
+        <img class="photo" src="fotos/foto-principal.jpg" alt="Nuestra foto especial"
+          onerror="this.onerror=null; this.src='fotos/foto-principal.png';">
         <p class="small">DISTANCIA: dos lugares, una historia. ♡</p>
         <h2>TIEMPO JUNTOS</h2>
-        <div style="font-size:1.6rem;color:var(--green)" id="elapsed">5 meses y contando...</div>
+        <div style="font-size:1.6rem;color:var(--green)">5 meses y contando...</div>
         <p class="small">Hecho con código, cariño y un montón de ilusión by Javixis.</p>
       </section>
 
       <section class="panel hidden" id="letter">
-        <h2>▣ CARTA PARA <span class="herName">Gma</span></h2>
+        <h2>▣ CARTA PARA GMA</h2>
         <div class="letter">
           <p>Mi amorxis:</p>
-          <p>Hoy cumplimos cinco meses y quería regalarte algo que hubiera hecho yo mismo. Quizá no pueda estar contigo
-            en persona hoy ni poder vernos el sabado, pero quería que tuvieras un detalle que pudieras abrir desde donde
-            estés y que te recordara
-            lo mucho que significas para mí.</p>
-          <p>Gracias por estos meses, por las risas, por cada conversación y por todos esos pequeños momentos que se han
-            vuelto recuerdos importantes para mí. Me gusta lo que estamos construyendo y me emociona seguir
-            conociéndote, aprender de ti y crear más historias juntos.</p>
-          <p>No sé todo lo que nos depare el futuro, pero sí sé que hoy estoy feliz de compartir este camino contigo.
-            Ojalá cuando vuelvas a abrir esta página encuentres aquí un recuerdo bonito de nosotros.</p>
+          <p>
+            Hoy cumplimos cinco meses y quería regalarte algo que hubiera hecho yo mismo.
+            Quizá hoy no pueda verte en persona, pero quería que tuvieras un detalle que
+            pudieras abrir desde donde estés y que te recordara lo mucho que significas para mí.
+          </p>
+          <p>
+            Gracias por estos meses, por las risas, por cada conversación y por todos esos
+            pequeños momentos que se han vuelto recuerdos importantes para mí. Me gusta lo
+            que estamos construyendo y me emociona seguir conociéndote, aprender de ti y
+            crear más historias juntos.
+          </p>
+          <p>
+            No sé todo lo que nos depare el futuro, pero sí sé que hoy estoy feliz de
+            compartir este camino contigo. Ojalá cuando vuelvas a abrir esta página encuentres
+            aquí un recuerdo bonito de nosotros.
+          </p>
           <p>Te quiero muchísimo, mi papita, Gma. Felices cinco meses, amorxito. ♡</p>
           <p>— Tu programador favorito (espero jajaja)</p>
         </div>
@@ -296,16 +315,20 @@
       <section class="panel hidden" id="memories">
         <h2>▣ GALERÍA DE RECUERDOS JAVIXIS Y GUEMA</h2>
         <div class="gallery">
-          <div><img class="photo" src="fotos/recuerdo-1.jpg" alt="Recuerdo 1" onerror="this.style.display='none'">
+          <div>
+            <img class="photo" src="fotos/recuerdo-1.jpg" alt="Recuerdo 1">
             <div class="caption">Nuestro primer recuerdo ♡</div>
           </div>
-          <div><img class="photo" src="fotos/recuerdo-2.jpg" alt="Recuerdo 2" onerror="this.style.display='none'">
+          <div>
+            <img class="photo" src="fotos/recuerdo-2.jpg" alt="Recuerdo 2">
             <div class="caption">Un momento que guardo</div>
           </div>
-          <div><img class="photo" src="fotos/recuerdo-3.jpg" alt="Recuerdo 3" onerror="this.style.display='none'">
+          <div>
+            <img class="photo" src="fotos/recuerdo-3.jpg" alt="Recuerdo 3">
             <div class="caption">Tú y yo</div>
           </div>
-          <div><img class="photo" src="fotos/recuerdo-4.jpg" alt="Recuerdo 4" onerror="this.style.display='none'">
+          <div>
+            <img class="photo" src="fotos/recuerdo-4.jpg" alt="Recuerdo 4">
             <div class="caption">Y los que faltan...</div>
           </div>
         </div>
@@ -316,62 +339,99 @@
         <h2>♡ ARCHIVO SECRETO DESBLOQUEADO</h2>
         <div class="heart">♥</div>
         <h1 style="font-size:2rem">5 meses.</h1>
-        <p>Si pudiera guardar algo de estos meses en una cajita, guardaría las veces que me haces reír con tus xistes,
-          la tranquilidad
-          que siento al hablar contigo y las ganas que tengo de seguir creando recuerdos a tu lado y que vivas en
-          TAMAZULA.</p>
+        <p>
+          Si pudiera guardar algo de estos meses en una cajita, guardaría las veces que me
+          haces reír con tus xistes, la tranquilidad que siento al hablar contigo y las ganas
+          que tengo de seguir creando recuerdos a tu lado y que vivas en TAMAZULA.
+        </p>
         <p class="prompt">> MISIÓN SIGUIENTE: seguir eligiéndonos, escucharnos y disfrutar lo que construimos. ♡</p>
         <button onclick="closeSection('surprise')">[ Guardar sorpresa en el corazón ]</button>
       </section>
 
+      <section class="panel hidden" id="map">
+        <h2>▣ DOS LUGARES, UNA HISTORIA</h2>
+        <p>Sayula y Tamazula. Dos lugares distintos, pero unidos por nuestra historia. ♡</p>
+        <div class="terminal" style="min-height:auto;margin-bottom:12px;">> UBICACIÓN 01: SAYULA, JALISCO
+          > UBICACIÓN 02: TAMAZULA DE GORDIANO, JALISCO
+          > CONEXIÓN: JAVIXIS ♥ GMA</div>
+        <div class="map-frame">
+          <iframe title="Mapa de Sayula y Tamazula de Gordiano, Jalisco"
+            src="https://www.google.com/maps?output=embed&q=Sayula%2C%20Jalisco%20to%20Tamazula%20de%20Gordiano%2C%20Jalisco"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <p class="small">Abre el mapa para explorar los dos lugares. Aunque haya kilómetros entre nosotros, seguimos
+          creando nuestra historia. ♡</p>
+        <button onclick="closeSection('map')">[ Volver ]</button>
+      </section>
+
       <section class="panel">
         <h2>▣ RECUERDOS QUE QUIERO GUARDAR</h2>
-        <ul class="list" id="memoryList">
+        <ul class="list">
           <li>El día en que empezamos a acercarnos en Amacueca.</li>
           <li>Las conversaciones que se alargan sin darnos cuenta.</li>
-          <li>Las risas y bromas que solo nosotros entendemos mi capibara.</li>
+          <li>Las risas y bromas que solo nosotros entendemos, mi capibara.</li>
           <li>Estos cinco meses y todo lo que falta por vivir.</li>
         </ul>
-
       </section>
     </main>
+
     <footer>HECHO A MANO, LÍNEA POR LÍNEA BY SHRXK ♡ // GMA_OS</footer>
   </div>
+
   <script>
     function openSection(id) {
-      document.querySelectorAll('#letter,#memories,#surprise').forEach(el => el.classList.add('hidden'));
-      const el = document.getElementById(id);
-      el.classList.remove('hidden');
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('#letter, #memories, #surprise, #map')
+        .forEach(section => section.classList.add('hidden'));
+
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      section.classList.remove('hidden');
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
       if (id === 'surprise') typeTerminal();
     }
-    function closeSection(id) { document.getElementById(id).classList.add('hidden') }
+
+    function closeSection(id) {
+      const section = document.getElementById(id);
+      if (section) section.classList.add('hidden');
+    }
+
+    function openSong() {
+      const url = 'https://www.youtube.com/results?search_query=Plain+White+T%27s+Hey+There+Delilah';
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
     function typeTerminal() {
-      const el = document.getElementById('terminal');
-      el.textContent = '';
-      const lines = ['> Conectando con ' + (document.getElementById('herName').value || 'Gma') + '...', '> Cargando cinco meses de recuerdos...', '> Distancia detectada. Cariño: sin límites.', '> Estado: enamorado.exe funcionando ♡'];
-      let line = 0, char = 0;
+      const terminal = document.getElementById('terminal');
+      const lines = [
+        '> Conectando con Gma...',
+        '> Cargando cinco meses de recuerdos...',
+        '> Distancia detectada. Cariño: sin límites.',
+        '> Estado: enamorado.exe funcionando ♡'
+      ];
+
+      terminal.textContent = '';
+      let line = 0;
+      let char = 0;
+
       function tick() {
         if (line >= lines.length) return;
-        if (char < lines[line].length) { el.textContent += lines[line][char++]; setTimeout(tick, 22) }
-        else { el.textContent += '\\n'; line++; char = 0; setTimeout(tick, 240) }
-      } tick();
+
+        if (char < lines[line].length) {
+          terminal.textContent += lines[line][char];
+          char++;
+          setTimeout(tick, 22);
+        } else {
+          terminal.textContent += '\n';
+          line++;
+          char = 0;
+          setTimeout(tick, 240);
+        }
+      }
+
+      tick();
     }
-    function applyPersonalization() {
-      const me = document.getElementById('yourName').value || 'Tu persona favorita';
-      const her = document.getElementById('herName').value || 'Gma';
-      const months = document.getElementById('months').value || '5 meses';
-      document.getElementById('herNameTop').textContent = her;
-      document.getElementById('herNameTitle').textContent = her;
-      document.querySelectorAll('.herName').forEach(el => el.textContent = her);
-      document.getElementById('elapsed').textContent = months + ' y contando...';
-      document.getElementById('version').textContent = 'v5.0';
-      document.querySelector('footer').textContent = 'HECHO POR ' + me.toUpperCase() + ' PARA ' + her.toUpperCase() + ' ♡';
-      const newLetter = document.getElementById('letterEdit').value;
-      document.querySelector('#letter .letter').innerHTML = '<p>Mi amorxis:</p><p>' + escapeHtml(newLetter).replace(/\n/g, '<br>') + '</p><p>— ' + escapeHtml(me) + ' ♡</p>';
-      document.getElementById('terminal').textContent = '> Iniciando GMA_OS...\\n> Persona encontrada: ' + her + ' ♡\\n> Tiempo juntos: ' + months + '\\n> Estado: enamorado.exe funcionando';
-    }
-    function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])) }
   </script>
 </body>
 
